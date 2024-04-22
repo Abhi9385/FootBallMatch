@@ -44,7 +44,7 @@ public class EminenceSecurityConfig {
                 .authorizeHttpRequests(authorizeRequests  -> authorizeRequests
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/football/fetch-draw-matches/**").hasAnyAuthority("USER","ADMIN")
-                        .requestMatchers("/football/**").hasAnyAuthority("ADMIN")
+                        .requestMatchers("/api/**").hasAnyAuthority("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())

@@ -17,12 +17,10 @@ public class FootBallMatchController {
 
     private FootballMatchService footballMatchService;
 
-    private JWTDecodeService jwtDecodeService;
 
     @Autowired
-    public FootBallMatchController(FootballMatchService footballMatchService,JWTDecodeService jwtDecodeService) {
+    public FootBallMatchController(FootballMatchService footballMatchService) {
         this.footballMatchService = footballMatchService;
-        this.jwtDecodeService=jwtDecodeService;
     }
 
 
@@ -34,8 +32,4 @@ public class FootBallMatchController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/token-decode/{jwtTokenRequest}")
-    public String decodeJwt(@PathVariable String jwtTokenRequest) {
-        return jwtDecodeService.decodeJwt(jwtTokenRequest);
-    }
 }
